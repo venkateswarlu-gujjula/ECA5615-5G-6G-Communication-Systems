@@ -1,1 +1,21 @@
-
+clc;
+clear;
+close all;
+% Signal Power (W)
+Ps = 1;
+% Noise Power (W) for each user
+Pn = [0.1 0.05 0.01];
+% User numbers
+Users = 1:3;
+% Calculate SNR in dB
+SNR = 10 * log10(Ps ./ Pn);
+% Display results
+disp('User   Noise Power(W)   SNR(dB)')
+disp([Users' Pn' SNR'])
+% Plot SNR
+figure;
+bar(Users, SNR);
+xlabel('Users');
+ylabel('SNR (dB)');
+title('Signal-to-Noise Ratio of FDMA Users');
+grid on;
