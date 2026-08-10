@@ -1,0 +1,22 @@
+clc;
+clear;
+close all;
+rbTotal = 50;
+userIndex = 1:5;
+rbAssigned = [12 10 9 8 11];
+usagePercent = (rbAssigned ./ rbTotal) * 100;
+disp('Resource Block Utilization (%) per User:')
+disp(usagePercent')
+figure
+subplot(2,1,1)
+plot(userIndex,rbAssigned,'-o','LineWidth',2)
+title('OFDMA Resource Block Allocation per User')
+xlabel('User Index')
+ylabel('Number of Resource Blocks')
+grid on
+subplot(2,1,2)
+plot(userIndex,usagePercent,'-s','LineWidth',2)
+title('OFDMA Resource Block Utilization (%)')
+xlabel('User Index')
+ylabel('Utilization (%)')
+grid on
