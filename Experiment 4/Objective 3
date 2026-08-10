@@ -1,0 +1,24 @@
+clc;
+clear;
+close all;
+rbSize = 180e3;
+userID = 1:5;
+rbCount = [12 10 9 8 11];
+spectralEff = [2 4 6 4 2];
+userRate = rbCount .* spectralEff .* rbSize;
+userRate = userRate / 1e6;
+disp('User Throughput (Mbps):')
+disp(userRate')
+figure
+subplot(2,1,1)
+plot(userID,userRate,'-o','LineWidth',2)
+title('OFDMA User Throughput')
+xlabel('User Index')
+ylabel('Throughput (Mbps)')
+grid on
+subplot(2,1,2)
+plot(rbCount,userRate,'-s','LineWidth',2)
+title('Resource Blocks vs Throughput Relationship')
+xlabel('Allocated Resource Blocks')
+ylabel('Throughput (Mbps)')
+grid on
